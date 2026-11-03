@@ -17,6 +17,7 @@ public class User implements Serializable {
     private String username;
     private String email;
     private Timestamp data_cadastro;
+    private Boolean active;
 
     public UUID getId_usuario() {
         return id_usuario;
@@ -26,12 +27,20 @@ public class User implements Serializable {
         this.id_usuario = id_usuario;
     }
 
-    public String getUsername() {
-        return username;
+    public Boolean getActive() {
+        return active;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setActive(Boolean active) {
+        this.active = active;
+    }
+
+    public Timestamp getData_cadastro() {
+        return data_cadastro;
+    }
+
+    public void setData_cadastro(Timestamp data_cadastro) {
+        this.data_cadastro = data_cadastro;
     }
 
     public String getEmail() {
@@ -42,11 +51,11 @@ public class User implements Serializable {
         this.email = email;
     }
 
-    public Timestamp getData_cadastro() {
-        return data_cadastro;
+    public String getUsername() {
+        return username;
     }
 
-    public void setData_cadastro(Timestamp data_cadastro) {
-        this.data_cadastro = data_cadastro;
+    public void setUsername(String username) {
+        this.username = username;
     }
 }
