@@ -1,4 +1,4 @@
-package br.com.tatuwallet.dto;
+package br.com.tatuwallet.dto.response;
 
 
 import jakarta.validation.constraints.NotBlank;
