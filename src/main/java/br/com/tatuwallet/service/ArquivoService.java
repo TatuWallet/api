@@ -1,5 +1,5 @@
 package br.com.tatuwallet.service;
-
+/*
 import java.io.IOException;
 import java.util.UUID;
 
@@ -9,10 +9,12 @@ import org.springframework.web.multipart.MultipartFile;
 import software.amazon.awssdk.core.sync.RequestBody;
 import software.amazon.awssdk.services.s3.S3Client;
 import software.amazon.awssdk.services.s3.model.PutObjectRequest;
+ */
 
-@Service
+// @Service
 public class ArquivoService {
 
+    /*
     private final S3Client s3Client;
 
     public ArquivoService(S3Client s3Client) {
@@ -39,4 +41,6 @@ public class ArquivoService {
 
         return nomeArquivo;
     }
+
+     */
 }

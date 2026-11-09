@@ -6,5 +6,14 @@ import jakarta.validation.constraints.NotEmpty;
 
 import java.sql.Timestamp;
 
-public record UserDto(@NotBlank String username, @NotBlank String email, @NotEmpty Timestamp data_cadastro) {
-}
+import java.time.Instant;
+import java.util.UUID;
+
+public record UserDto(
+        UUID id,
+        String name,
+        String username,
+        String email,
+        Instant dataCadastro,
+        Boolean active
+) {}

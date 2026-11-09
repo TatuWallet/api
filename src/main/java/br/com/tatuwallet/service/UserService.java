@@ -30,7 +30,7 @@ public class UserService {
         return mapper.toDto(repository.save(mapper.toEntity(id, req)));
     }
 
-    @Transactional(readOnly = true)
+    @Transactional()
     public UserDto buscar(UUID id) {
         return repository.findById(id)
                 .map(mapper::toDto)

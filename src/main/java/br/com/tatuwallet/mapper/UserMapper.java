@@ -13,6 +13,7 @@ public class UserMapper {
     public User toEntity(UUID id, CriarUsuarioRequest req) {
         User u = new User();
         u.setId(id);
+        u.setName(req.name());
         u.setUsername(req.username());
         u.setEmail(req.email());
         u.setActive(true);
@@ -20,7 +21,7 @@ public class UserMapper {
     }
 
     public UserDto toDto(User u) {
-        return new UserDto(u.getId(), u.getUsername(), u.getEmail(),
+        return new UserDto(u.getId(), u.getName(), u.getUsername(), u.getEmail(),
                 u.getDataCadastro(), u.getActive());
     }
 }

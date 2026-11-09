@@ -1,5 +1,6 @@
 package br.com.tatuwallet.config;
 
+/*
 import java.net.URI;
 
 import org.springframework.context.annotation.Bean;
@@ -31,3 +32,5 @@ public class S3Config {
                 .build();
     }
 }
+
+ */

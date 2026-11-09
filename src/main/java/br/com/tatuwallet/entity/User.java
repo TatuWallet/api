@@ -15,7 +15,10 @@ public class User implements Serializable {
     @Column(name = "id_usuario")
     private UUID id;                 // vem do JWT, sem @GeneratedValue
 
-    @Column(nullable = false, unique = true, length = 30)
+    @Column(name = "nome", nullable = false, unique = false, length = 50)
+    private String name;
+
+    @Column(name = "username", nullable = false, unique = true, length = 30)
     private String username;
 
     @Column(nullable = false, unique = true, length = 120)
@@ -32,13 +35,17 @@ public class User implements Serializable {
         this.dataCadastro = Instant.now();
     }
 
-    public UUID getId_usuario() {
+    public UUID getId() {
         return id;
     }
 
-    public void setId_usuario(UUID id_usuario) {
+    public void setId(UUID id_usuario) {
         this.id = id_usuario;
     }
+
+    public String getName() {return name;}
+
+    public void setName(String name) {this.name = name;}
 
     public Boolean getActive() {
         return active;
@@ -48,11 +55,11 @@ public class User implements Serializable {
         this.active = active;
     }
 
-    public Instant getData_cadastro() {
+    public Instant getDataCadastro() {
         return dataCadastro;
     }
 
-    public void setData_cadastro(Instant data_cadastro) {
+    public void setDataCadastro(Instant data_cadastro) {
         this.dataCadastro = data_cadastro;
     }
 

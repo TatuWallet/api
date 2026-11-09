@@ -1,5 +1,5 @@
 package br.com.tatuwallet.controller;
-
+/*
 import java.io.IOException;
 
 import org.springframework.http.ResponseEntity;
@@ -28,3 +28,5 @@ public class ArquivoController {
         return ResponseEntity.ok("Arquivo enviado com sucesso: " + nomeArquivo);
     }
 }
+
+ */
