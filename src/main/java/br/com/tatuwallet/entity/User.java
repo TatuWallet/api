@@ -1,11 +1,10 @@
 package br.com.tatuwallet.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 import java.io.Serializable;
 import java.sql.Timestamp;
+import java.time.Instant;
 import java.util.UUID;
 
 @Entity
@@ -13,18 +12,32 @@ import java.util.UUID;
 public class User implements Serializable {
 
     @Id
-    private UUID id_usuario;
+    @Column(name = "id_usuario")
+    private UUID id;                 // vem do JWT, sem @GeneratedValue
+
+    @Column(nullable = false, unique = true, length = 30)
     private String username;
+
+    @Column(nullable = false, unique = true, length = 120)
     private String email;
-    private Timestamp data_cadastro;
-    private Boolean active;
+
+    @Column(name = "data_cadastro", nullable = false, updatable = false)
+    private Instant dataCadastro;
+
+    @Column(name = "ativo", nullable = false)
+    private Boolean active = true;
+
+    @PrePersist
+    void prePersist() {
+        this.dataCadastro = Instant.now();
+    }
 
     public UUID getId_usuario() {
-        return id_usuario;
+        return id;
     }
 
     public void setId_usuario(UUID id_usuario) {
-        this.id_usuario = id_usuario;
+        this.id = id_usuario;
     }
 
     public Boolean getActive() {
@@ -35,12 +48,12 @@ public class User implements Serializable {
         this.active = active;
     }
 
-    public Timestamp getData_cadastro() {
-        return data_cadastro;
+    public Instant getData_cadastro() {
+        return dataCadastro;
     }
 
-    public void setData_cadastro(Timestamp data_cadastro) {
-        this.data_cadastro = data_cadastro;
+    public void setData_cadastro(Instant data_cadastro) {
+        this.dataCadastro = data_cadastro;
     }
 
     public String getEmail() {
