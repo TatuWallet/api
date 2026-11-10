@@ -23,11 +23,11 @@ public class UserService {
     }
 
     @Transactional
-    public UserDto criarPerfil(UUID id, CriarUsuarioRequest req) {
-        if (repository.existsById(id)) {
-            throw new ResponseStatusException(HttpStatus.CONFLICT, "Perfil já existe");
+    public UserDto criarPerfil(CriarUsuarioRequest req) {
+        if (repository.existsByEmail(req.email())) {
+            throw new ResponseStatusException(HttpStatus.CONFLICT, "E-mail já cadastrado");
         }
-        return mapper.toDto(repository.save(mapper.toEntity(id, req)));
+        return mapper.toDto(repository.save(mapper.toEntity(req)));
     }
 
     @Transactional()

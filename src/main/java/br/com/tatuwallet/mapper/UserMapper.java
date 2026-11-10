@@ -10,9 +10,8 @@ import java.util.UUID;
 @Component
 public class UserMapper {
 
-    public User toEntity(UUID id, CriarUsuarioRequest req) {
+    public User toEntity(CriarUsuarioRequest req) {
         User u = new User();
-        u.setId(id);
         u.setName(req.name());
         u.setUsername(req.username());
         u.setEmail(req.email());

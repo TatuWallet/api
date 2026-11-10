@@ -7,26 +7,28 @@ import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.security.oauth2.jwt.Jwt;
-import org.springframework.web.bind.annotation.RestController;
 
 import java.util.UUID;
 
 @RestController
+@RequestMapping("/usuarios")
 public class UserController {
 
-    private UserService userService;
+    private final UserService userService;
 
     public UserController(UserService userService) {
         this.userService = userService;
     }
 
-    @PostMapping("/user/me")
-    public ResponseEntity<UserDto> criarPerfil(@AuthenticationPrincipal Jwt jwt,
-                                               @Valid @RequestBody CriarUsuarioRequest req) {
-        UUID id = UUID.fromString(jwt.getSubject());
-        return ResponseEntity.status(HttpStatus.CREATED).body(userService.criarPerfil(id, req));
+    @PostMapping
+    public ResponseEntity<UserDto> criar(@Valid @RequestBody CriarUsuarioRequest req) {
+        return ResponseEntity.status(HttpStatus.CREATED).body(userService.criarPerfil(req));
+    }
+
+    @GetMapping("/{id}")
+    public UserDto buscar(@PathVariable UUID id) {
+        return userService.buscar(id);
     }
 }
