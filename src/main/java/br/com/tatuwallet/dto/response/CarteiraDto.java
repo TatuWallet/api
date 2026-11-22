@@ -16,5 +16,5 @@ public record CarteiraDto(
         String rede,
         TipoCarteira tipo,
         Boolean verified
-) {
-}
+
+) {}

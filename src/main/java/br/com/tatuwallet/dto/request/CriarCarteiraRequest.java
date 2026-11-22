@@ -7,6 +7,8 @@ import jakarta.validation.constraints.Size;
 import java.util.UUID;
 
 public record CriarCarteiraRequest(
+
+
         @NotNull(message = "idUsuario é obrigatório")
         UUID idUsuario,
 
