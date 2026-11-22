@@ -9,12 +9,11 @@ import java.time.Instant;
 public record CarteiraDto(
         Long id,
         String nome,
+        String endereco,
+        String rede,
         BigDecimal saldoFiat,
         User usuario,
-        String endereco,
         Instant dataCriacao,
-        String rede,
         TipoCarteira tipo,
         Boolean verified
-
 ) {}
