@@ -112,6 +112,12 @@
     		<version>2.57.8</version>
 		</dependency>
 
+        <dependency>
+            <groupId>org.web3j</groupId>
+            <artifactId>crypto</artifactId>
+            <version>4.12.2</version>
+        </dependency>
+
     </dependencies>
 
 	<build>
