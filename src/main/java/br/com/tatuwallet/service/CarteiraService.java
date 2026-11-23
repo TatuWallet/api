@@ -49,10 +49,4 @@ public class CarteiraService {
         return new CarteiraCriadaDto(mapper.toDto(salva), nova.mnemonic(), AVISO);
     }
 
-    @Transactional(readOnly = true)
-    public CarteiraDto buscar(Long id) {
-        return repository.findById(id)
-                .map(mapper::toDto)
-                .orElseThrow(() -> new CarteiraNaoEncontradaException(id));
-    }
 }
