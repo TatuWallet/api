@@ -12,8 +12,8 @@ import br.com.tatuwallet.exception.UsuarioNaoEncontradoException;
 import br.com.tatuwallet.mapper.CarteiraMapper;
 import br.com.tatuwallet.repository.CarteiraRepository;
 import br.com.tatuwallet.repository.UserRepository;
-import jakarta.transaction.Transactional;
-import lombok.Value;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.stereotype.Service;
 
 @Service
