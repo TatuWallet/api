@@ -1,4 +1,10 @@
 package br.com.tatuwallet.dto.response;
 
-public class CotacaoDto {
-}
+import java.math.BigDecimal;
+import java.time.Instant;
+
+public record CotacaoDto (
+    String simbolo,
+    BigDecimal precoBrl,
+    Instant atualizadoEm
+) {}
