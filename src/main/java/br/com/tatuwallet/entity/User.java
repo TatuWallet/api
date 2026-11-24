@@ -12,8 +12,8 @@ import java.util.UUID;
 public class User implements Serializable {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_usuario")
+    @GeneratedValue(strategy = GenerationType.UUID)
+    @Column(name = "id")
     private UUID id;                 // vem do JWT, sem @GeneratedValue
 
     @Column(name = "nome", nullable = false, unique = false, length = 50)
