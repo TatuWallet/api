@@ -14,6 +14,9 @@ public class Carteira {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Version
+    private Long versao;
+
     @Column(name = "nome", nullable = false, length = 100)
     private String nome;
 
