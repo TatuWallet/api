@@ -33,6 +33,4 @@ public class CarteiraController {
     public CarteiraDto buscar(@PathVariable Long id) {
         return service.buscar(id);
     }
-
-
 }
