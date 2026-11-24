@@ -3,7 +3,10 @@ package br.com.tatuwallet.controller;
 import br.com.tatuwallet.dto.request.CriarCarteiraRequest;
 import br.com.tatuwallet.dto.response.CarteiraCriadaDto;
 import br.com.tatuwallet.dto.response.CarteiraDto;
+import br.com.tatuwallet.dto.response.SaldoDto;
+import br.com.tatuwallet.entity.Saldo;
 import br.com.tatuwallet.service.CarteiraService;
+import br.com.tatuwallet.service.SaldoService;
 import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -15,6 +18,7 @@ import java.net.URI;
 public class CarteiraController {
 
     private final CarteiraService service;
+    // private final SaldoService saldoService;
 
     public CarteiraController(CarteiraService service) {
         this.service = service;
@@ -33,4 +37,10 @@ public class CarteiraController {
     public CarteiraDto buscar(@PathVariable Long id) {
         return service.buscar(id);
     }
+    /*
+    @GetMapping("/{id}/saldo")
+    public SaldoDto getSaldo(@PathVariable Long id) {
+        return SaldoService.buscar_saldo(id);
+    }
+    */
 }
