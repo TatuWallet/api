@@ -1,4 +1,7 @@
 package br.com.tatuwallet.repository;
 
-public interface SaldoRepository {
+import br.com.tatuwallet.entity.Saldo;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface SaldoRepository extends JpaRepository<Saldo, Long> {
 }

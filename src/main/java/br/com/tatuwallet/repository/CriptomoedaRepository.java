@@ -1,4 +1,7 @@
 package br.com.tatuwallet.repository;
 
-public interface CriptomoedaRepository {
+import br.com.tatuwallet.entity.Criptomoeda;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface CriptomoedaRepository extends JpaRepository<Criptomoeda, Long> {
 }
