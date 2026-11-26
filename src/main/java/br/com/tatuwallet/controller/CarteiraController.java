@@ -10,6 +10,7 @@ import br.com.tatuwallet.service.SaldoService;
 import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import br.com.tatuwallet.dto.request.AtualizarNomeCarteiraRequest;
 
 import java.net.URI;
 
@@ -43,4 +44,12 @@ public class CarteiraController {
         return SaldoService.buscar_saldo(id);
     }
     */
+
+    @PutMapping("/{id}/nome")
+    public CarteiraDto atualizarNome(
+            @PathVariable Long id,
+            @Valid @RequestBody AtualizarNomeCarteiraRequest req) {
+
+        return service.atualizarNome(id, req);
+    }
 }

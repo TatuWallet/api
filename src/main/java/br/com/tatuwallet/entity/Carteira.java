@@ -100,6 +100,10 @@ public class Carteira {
         return tipo;
     }
 
+    public Long getVersao() {
+        return versao;
+    }
+
     public void setTipo(TipoCarteira tipo) {
         this.tipo = tipo;
     }
