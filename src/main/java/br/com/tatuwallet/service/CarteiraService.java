@@ -15,6 +15,7 @@ import br.com.tatuwallet.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.stereotype.Service;
+import br.com.tatuwallet.dto.request.AtualizarNomeCarteiraRequest;
 
 @Service
 public class CarteiraService {
@@ -54,5 +55,16 @@ public class CarteiraService {
         return repository.findById(id)
                 .map(mapper::toDto)
                 .orElseThrow(() -> new CarteiraNaoEncontradaException(id));
+    }
+
+    @Transactional
+    public CarteiraDto atualizarNome(Long id, AtualizarNomeCarteiraRequest req) {
+
+        Carteira carteira = repository.findById(id)
+                .orElseThrow(() -> new CarteiraNaoEncontradaException(id));
+
+        carteira.setNome(req.nome());
+
+        return mapper.toDto(carteira);
     }
 }
